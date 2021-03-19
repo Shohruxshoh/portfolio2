@@ -25,7 +25,7 @@ SECRET_KEY = '1b!%@l%5q_eu3pjsxja6#9n*3qdn(6h(ws1$wzh40v#ak8p%9a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['deltaportfolio1.herokuapp.com', '127.0.0.7']
+ALLOWED_HOSTS = ['deltaportfolio1.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'port',
         'USER': 'postgres',
         'PASSWORD': 'admin',
-        'HOST': '127.0.0.7',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
