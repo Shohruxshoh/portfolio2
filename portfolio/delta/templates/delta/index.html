@@ -1,0 +1,269 @@
+{% extends 'delta/layout.html' %}
+{%load static%}
+
+{% block content %}
+<style>
+    {
+        %for item in skills%
+    }
+
+    .card:nth-child(1) svg circle:nth-child(2) {
+        stroke-dashoffset: calc(440 - (440 * {
+                        {
+                        item.html
+                    }
+                }
+
+            ) / 100);
+        stroke: #00ff43;
+    }
+
+    .card:nth-child(2) svg circle:nth-child(2) {
+        stroke-dashoffset: calc(440 - (440 * {
+                        {
+                        item.css
+                    }
+                }
+
+            ) / 100);
+        stroke: #00a1ff;
+    }
+
+    .card:nth-child(3) svg circle:nth-child(2) {
+        stroke-dashoffset: calc(440 - (440 * {
+                        {
+                        item.python
+                    }
+                }
+
+            ) / 100);
+        stroke: #ff04f7;
+    }
+
+        {
+        %endfor%
+    }
+</style>
+<header class="container-fluid background">
+    <main class="container">
+        <nav>
+            <ul class="item">
+                <li class="items"><a href="{% url 'home'%}" class="link logo"><span class="logo">Delta</span></a>
+                </li>
+                <li class="items"><a href="{% url 'home' %}"><i class="fa fa-fw fa-home"></i> Home</a></li>
+                <li class="items"><a href="{% url 'projects' %}" class="link"><i
+                            class="fa fa-fw fa-folder"></i>Projects</a></li>
+                <li class="items"><a href="{% url 'contact' %}" class="link"><i
+                            class="fa fa-fw fa-id-card"></i>contacts</a>
+                </li>
+
+            </ul>
+            {% if user.is_authenticated %}
+            <h3 style="color: #fff;font-family: sans-serif">Welcome {{user}}</h3>
+            <a href="{% url 'logout' %}" class="btn btn-light me-2">logout</a>
+            {% else %}
+            <div class="registration mt-3">
+                <a href="{% url 'login' %}" class="btn btn-light me-2">log in</a>
+                <a href="{% url 'register' %}" class="btn btn-danger ">sign in</a>
+            </div>
+            {%endif%}
+
+
+        </nav>
+
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel"
+            data-bs-interval="4000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="side_main  w-100">
+                        <div class="block_title">
+                            <div class="title">Hi, I'm Narziyev Orzu</div>
+                            <div class="sub_title">Full stack developer</div>
+                            <a href="#" class="btn btn-danger mt-3">more about me</a>
+                        </div>
+                        <img src="{% static 'delta/img/snouden1.png' %}" alt="" width="450">
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class="side_main">
+                        <div class="block_title">
+                            <div class="title">Hi, I'm Nasriddinov Shohrux</div>
+                            <div class="sub_title">Full stack developer</div>
+                            <a href="#" class="btn btn-danger mt-3">more about me</a>
+                        </div>
+                        <img src="{% static 'delta/img/mark2.png' %}" alt="" width="450">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</header>
+
+<!--about-->
+{% block about %}
+<section class="container ">
+    <div class="row">
+        <div class="col-md-6" style="float:right;">
+            <img src="{% static 'delta/img/snouden.jpg' %}" width="100%" alt="" class="image">
+        </div>
+        <div class="col-md-6" style="float:right;">
+            <div class="p-3">
+                <div class="row">
+                    <div class="title" style="color:black;">About me</div>
+                </div>
+                <div class="row">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ipsum,
+                    officiis, magnam minima consequuntur at nihil doloremque minus placeat quisquam totam
+                    perspiciatis debitis nulla. Quis unde eaque voluptas modi, fuga fugiat dolores quo quos
+                    similique. Qui, optio. Tempora, nisi provident!Lorem ipsum, dolor sit amet consectetur
+                    adipisicing elit. Tenetur dolorem vero rem est laboriosam saepe sed eos molestias ipsum
+                    repellendus recusandae, beatae cupiditate eligendi corrupti earum magni eius ipsam in, laborum,
+                    minima perspiciatis sint fuga voluptatum? Laudantium deleniti culpa officiis minima quos odit
+                    asperiores quasi. Officiis numquam maiores sint veritatis.
+                </div>
+                <div class="row mt-2">
+                    <ul class="item_social d-inline-flex justify-content-center align-items-center">
+                        <li class="items_social me-2"><span class="input-group-text" id="basic-addon1">My Social
+                                Media:</span></li>
+                        <li class="items_social me-2"><a href="#" class="link_social"><img
+                                    src="{% static 'delta/img/logo_tel.png'%}" width="40" alt=""></a></li>
+                        <li class="items_social me-2"><a href="#" class="link_social"><img
+                                    src="{% static 'delta/img/logo_ok.png'%}" width="40" alt=""></a></li>
+                        <li class="items_social"><a href="#" class="link_social"><img
+                                    src="{% static 'delta/img/logo_insta.webp'%}" width="40" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+<!--services-->
+{% block services %}
+<section class="container">
+    <div class="title_about" align="center">SERVICES</div>
+    <div class="row avardss">
+        <div class="serv_card border">
+            <img src="{% static 'delta/img/serv1.png' %}" alt="" width="100px">
+            <div class="title_card" align="center">web development</div>
+            <div class="sub_title_serv">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, doloribus?
+            </div>
+        </div>
+        <div class="serv_card border">
+            <img src="{% static 'delta/img/icontel.png' %}" alt="" width="100px">
+            <div class="title_card" align="center">mobile Apps</div>
+            <div class="sub_title_serv">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, doloribus?
+            </div>
+        </div>
+        <div class="serv_card border">
+            <img src="{% static 'delta/img/ux_ui.png' %}" alt="" width="100px">
+            <div class="title_card" align="center">UI and UX</div>
+            <div class="sub_title_serv">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, doloribus?
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+<!--skills-->
+{% block skills %}
+<section class="container">
+
+
+    <div align="center" class="title_about">My Skills</div>
+
+    <div class="skils">
+        {%for item in skills%}
+        <div class="card">
+            <div class="box">
+                <div class="percent">
+                    <svg>
+                        <circle cx="70" cy="70" r="70"></circle>
+                        <circle cx="70" cy="70" r="70"></circle>
+                    </svg>
+                    <div class="number">
+                        <h2>{{item.html}}<span>%</span></h2>p
+                    </div>
+                </div>
+                <h2 class="text">Html</h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="box">
+                <div class="percent">
+                    <svg>
+                        <circle cx="70" cy="70" r="70"></circle>
+                        <circle cx="70" cy="70" r="70"></circle>
+                    </svg>
+                    <div class="number">
+                        <h2>{{item.css}}<span>%</span></h2>
+                    </div>
+
+                </div>
+                <h2 class="text">CSS</h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="box">
+                <div class="percent">
+                    <svg>
+                        <circle cx="70" cy="70" r="70"></circle>
+                        <circle cx="70" cy="70" r="70"></circle>
+                    </svg>
+                    <div class="number">
+                        <h2>{{item.python}}<span>%</span></h2>
+                    </div>
+                </div>
+                <h2 class="text">python</h2>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</section>
+{% endblock %}
+
+<!--awards-->
+{% block awards %}
+<section class="container">
+    <div class="avardss ">
+        <div class=" awards border mt-5 col-md-4 col-sm-12 ">
+            <img src="{% static 'delta/img/icons8-world-cup-96.png' %}" width="80" alt="">
+            <h3>100</h3>
+            <h4>awards</h4>
+        </div>
+        <div class=" awards border mt-5 col-md-4 col-sm-12 ">
+            <img src="{% static 'delta/img/icons8-work-200.png'%}" width="80" alt="">
+            <h3>1200</h3>
+            <h4>correct projects</h4>
+        </div>
+        <div class=" awards border mt-5 col-md-4 col-sm-12 ">
+            <img src="{%static 'delta/img/icons8-purchase-order-100.png'%}" width="80" alt="">
+            <h3>1200</h3>
+            <h4>wait order</h4>
+        </div>
+    </div>
+</section>
+{% endblock %}
+<section>
+    <div class="container">
+        <div class="container mt-5 card">
+            <h2>Our happy clients</h2>
+            <p>Create a media object with the .media and .media-body classes:</p>
+            {%for item in comment%}
+            <div class="media border p-3">
+                <img src="{% static 'delta/img/stive_about.png'%}" alt="John Doe" class="mr-3 mt-3 rounded-circle"
+                    style="width:60px;">
+                <div class="media-body">
+                    <h4>{{item.name}}<small><i> <code>posted {{item.date}}</code></i></small></h4>
+                    <p>{{item.description}}</p>
+                </div>
+            </div>
+            {%endfor%}
+
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

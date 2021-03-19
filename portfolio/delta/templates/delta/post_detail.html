@@ -1,0 +1,57 @@
+{%extends 'delta/layout.html'%}
+
+{%block content%}
+{% block header %}
+<header class="container-fluid header-project" style="height:100px;">
+    <main class="container">
+        <nav>
+
+            <ul class="item">
+                <li class="items"><a href="" class="link logo"><span class="logo">Delta</span></a>
+                </li>
+                <li class="items"><a href="{% url 'home' %}"><i class="fa fa-fw fa-home"></i> Home</a></li>
+                <li class="items"><a href="{% url 'projects' %}"><i class="fa fa-fw fa-folder"></i>Projects</a></li>
+                <li class="items"><a href="{% url 'contact' %}"><i class="fa fa-fw fa-id-card"></i>contacts</a></li>
+            </ul>
+
+            <div class="registration mt-3">
+                <a href="{%url 'login'%}" class="btn btn-light me-2">log in</a>
+                <a href="{% url 'register' %}}" class="btn btn-danger  ">sign in</a>
+            </div>
+        </nav>
+    </main>
+
+</header>
+{% endblock %}
+
+{%block project%}
+
+<div class="container mt-5">
+    <div class="row container">
+        <div class="col-md-6">
+            <img src="{{post.img.url}}" width="100%" alt="">
+        </div>
+        <div class="col-md-6 p-4">
+            <div class="sub_title" style="color: #000000">{{post.name}}</div>
+            <div class="description">{{post.description}}</div>
+            <a href="{{post.link}}" style="color: #0a53be;text-decoration: underline;font-size: 18px;">see more</a>
+        </div>
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class=" col-md-6 input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Username</span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                       aria-describedby="basic-addon1" name="username">
+            </div>
+            <label for="comment">Comment:</label>
+            <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+            <button type="submit" class="btn btn-light ">send you comments</button>
+        </form>
+
+    </div>
+</div>
+
+{%endblock%}
+
+{%endblock%}

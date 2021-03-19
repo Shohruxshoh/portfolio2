@@ -1,0 +1,118 @@
+{% extends 'delta/layout.html' %}
+{% load static %}
+
+{% block header %}
+<header class="container-fluid background" style="height: 100vh;">
+    <main class="container">
+        <nav>
+            <ul class="item">
+                <li class="items"><a href="{%url 'home'%}" class="link logo"><span class="logo">Delta</span></a>
+                </li>
+                <li class="items"><a href="{% url 'home' %}"><i class="fa fa-fw fa-home"></i> Home</a></li>
+                <li class="items"><a href="{% url 'projects' %}" class="link"><i
+                        class="fa fa-fw fa-folder"></i>Projects</a></li>
+                <li class="items"><a href="{% url 'contact' %}" class="link"><i class="fa fa-fw fa-id-card"></i>contacts</a>
+                </li>
+
+            </ul>
+
+            {% if user.is_authenticated %}
+            <h3 style="color: #fff;">Welcom {{user}}</h3>
+            <a href="{% url 'logout' %}" class="btn btn-light me-2">logout</a>
+            {% else %}
+            <div class="registration mt-3">
+                <a href="{% url 'login' %}" class="btn btn-light me-2">log in</a>
+                <a href="{% url 'register' %}" class="btn btn-danger ">sign in</a>
+            </div>
+            {%endif%}
+        </nav>
+
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-interval="2000"
+             data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {%for item in project%}
+                {% if item.name == 'Afex' %}
+                <div class="carousel-item active">
+                    <img src="{{item.img.url}}" class="d-block w-100" alt="...">
+                </div>
+                {% else %}
+                <div class="carousel-item">
+                    <img src="{{item.img.url}}" class="d-block w-100" alt="...">
+                </div>
+                {% endif%}
+                {%endfor%}
+            </div>
+        </div>
+
+    </main>
+</header>
+{% endblock %}
+
+{% block projects %}
+<section>
+    <div class="container-fluid block_project mt-5">
+
+        {% for item in project %}
+        <a href="{{item.get_absolute_url}}">
+            <div class="block1">
+                <img src="{{item.img.url}}" alt="Avatar" class="image" style="width:100%;height:300px;">
+                <div class="middle">
+                    <div class="text">{{item.name}}</div>
+                </div>
+            </div>
+        </a>
+
+
+
+        {% endfor %}
+
+
+    </div>
+</section>
+{% endblock %}
+
+{% block clients %}
+<section>
+    <div class="container">
+        <div class="container mt-5 card">
+            <h2>Our happy clients</h2>
+            <p>Create a media object with the .media and .media-body classes:</p>
+            <div class="media border p-3">
+                <img src="img/stive_about.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                <div class="media-body">
+                    <h4>Narziyev Orzu<small><i>Posted on February 19, 2016</i></small></h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+            <div class="media border p-3">
+                <img src="img/stive_about.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                <div class="media-body">
+                    <h4>Narziyev Orzu<small><i>Posted on February 19, 2016</i></small></h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+            <div class="media border p-3">
+                <img src="img/stive_about.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                <div class="media-body">
+                    <h4>Narziyev Orzu<small><i>Posted on February 19, 2016</i></small></h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+<!-- =========block project ========  -->
+<!--    happy clients-->
+
+<!--    footer   -->
+<section class="container-fluid mt-5">
+    <footer>
+        <p>contact : +9989x xxx-xx-xx</p>
+        <p>Copyright ©2021 All rights reserved | developers Narziyev Orzu , Shohrux ,Khaitov Sherzod </p>
+    </footer>
+</section>

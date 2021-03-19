@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{%static 'delta/css/style2.css'%}">
+</head>
+
+<body>
+<div class="wrap">
+    <h2>Sign in</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="input">
+            <i class='bx bxs-user'></i>
+            <input type="text" placeholder="Username.." name="username" required>
+        </div>
+        <div class="input">
+            <i class='bx bxs-lock-alt'></i>
+            <input type="password" placeholder="Password.." name="password" required>
+        </div>
+        <input type="submit" value="Sign in">
+
+        <div class="form-wrapper">
+            <div class="social">
+                <div class="align-fb">
+                    <i class='bx bxl-facebook'></i>
+                </div>
+                <div class="align-gl">
+                    <i class='bx bxl-google'></i>
+                </div>
+                <div class="align-tw">
+                    <i class='bx bxl-twitter'></i>
+                </div>
+                <div class="align-in">
+                    <i class='bx bxl-instagram-alt'></i>
+                </div>
+            </div>
+
+        </div>
+        {% for message in m %}
+            <p id="messages" color="white">{{message}}</p>
+        {% endfor %}
+    </form>
+</div>
+</body>
+
+</html>
